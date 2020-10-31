@@ -1,0 +1,31 @@
+3	Beware of the ground, for which you stand. The floor is quicker than the sand.	quicksand	axe
+1	This will not be an easy mission. Monkeys slow the expedition.	a troop of monkeys	open door
+3	A mysterious force, conjured by a seer? Keep playing the game, or you may disappear.	a tornado	die
+3	The water is scary, because of this beast. His teeth are massive. Don't intrude on his feast.	a hippopotamus	raft
+3	They grow much faster than bamboo. Take care or they will come after you.	poison ivy	saber
+3	His fangs are sharp. He likes your taste. Your party better move posthaste.	a lion	open door
+3	It twists and turns, and tears up the ground. It swirls and twirls, and swallows up towns.	a tornado	rope
+1	The clouds open up. The thunder roars. Lightning cracks. And down it pours.	a monsoon	die
+3	There's a plague in the air. Try not to breathe. The fog is so thick. And it's a thousand degrees.	poisonous gas	die
+1	They are strong creatures for their size. Where they are many, they'll cause your demise.	fire ants	rope
+5	Don't be fooled. It isn't thunder. Staying put would be a blunder.	a herd of rhinos	rope
+1	Her spots are many. She sits in in the trees. She waits for her prey. And nobody flees.	a cheetah	rope
+5	A hunter from the darkest wild makes you feel just like a child.	Van Pelt	saber
+1	Quick on their feet, covered in stripes - it's a thundering herd, cloaked in black and white.	a herd of zebras	open door
+3	A slithering serpent, disguised on the ground. It will wrap you up and drag you down.	an anaconda	saber
+3	Huge beasts on the move, driving through like a truck - you can't outrun them. Watch out for their tusks.	a herd of elephants	open door
+1	Thousands of teeth, swimming around you - it's a fish feeding frenzy, and they just found you.	piranhas	raft
+3	Hungry yellow flowers that don't only eat flies. They're hungy for you, and might make you cry.	man-eating plant	axe
+5	You're almost there, with most at stake. But now the earth begins to shake.	an earthquake	die
+3	They fly quickly unless in a breeze. They'll bite your head, your arms, and knees.	a swarm of mosquitoes	racquet
+1	At night they fly. You'd better run. These winged things are not much fun.	a swarm of bats	racquet
+1	The building is crumbling. You are in trouble. Hurry and escape, or you'll be covered in rubble.	an earthquake	axe
+5	Every month at the quarter moon, there is a monsoon in your lagoon.	a flood	raft
+3	A giant ice storm - cover your knees. Quick, get inside, or you might freeze.	a hail storm	die
+1	They like to laugh, but they're not your friends. If you take them lightly, it will be your end.	a pack of hyenas	saber
+3	Pretty flowers, but don't take a smell. Their petals are poison that will make you swell.	poison hemlock	saber
+3	A giant reptile, scaly and green - it moves undetected, and he's quite mean.	a crocodile	raft
+1	Need a hand? Why just you wait. We'll help you out. We each have eight.	a bunch of tarantulas	racquet
+1	Thirsty blood-suckers, black as the night - they'll cover your body and give you a fright.	leeches	raft
+1	Flying in from the sky, he's in a bad mood. Oh, no! He's hungry. The game is not food!	a pterodactyl	die
+-1
