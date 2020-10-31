@@ -24,12 +24,12 @@ class Path
         void set_position(unsigned int new_position) {position = new_position;}
 
         //operators
-        friend ostream& operator >>(ostream& os, Path path);
+        friend ostream& operator >>(ostream& os, Path path); //Do I really need this?
 
     private:
         vector<string> tiles; //vector that contains the tiles that make up the path
         unsigned int position; //position where the player is in the path
 
-}
+};
 
 #endif//PATH_H

@@ -1,8 +1,10 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include <iostream>
 #include <string>
 
+using std::ostream;
 using std::string;
 
 class Card
@@ -27,6 +29,6 @@ class Card
         string answer; //answer to the riddle
         string rescueItem; //item that will rescue the player
 
-}
+};
 
 #endif//CARD_H
