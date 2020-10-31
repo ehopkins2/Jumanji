@@ -12,6 +12,7 @@ class Card
     public:
         //constructors
         Card();
+        Card(unsigned int, string, string, string);
 
         //accessors
         unsigned int get_moveSpaces() const {return moveSpaces;}
@@ -20,7 +21,7 @@ class Card
         string get_rescueItem() const {return rescueItem;}
 
         //operators
-        friend ostream& operator >>(ostream& os, Card card);
+        friend ostream& operator >>(ostream&, Card);
 
 
     private:
