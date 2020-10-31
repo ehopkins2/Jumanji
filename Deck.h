@@ -13,6 +13,7 @@ class Deck
     public:
         //constructors
         Deck();
+        Deck(unsigned int, const vector<Card>&);
 
         //accessors
         unsigned int get_size() const {return size;}
@@ -21,8 +22,8 @@ class Deck
         //other member functions
         void shuffle();//shuffles the current deck
 
-        //operators
-        friend ostream& operator >>(ostream& os, Deck deck); //Do I really need this?
+        //overloaded insertion operator
+        friend ostream& operator <<(ostream& os, Deck deck); //Do I really need this?
 
     private:
         unsigned int size; //number of cards in the deck
