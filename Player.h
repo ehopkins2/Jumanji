@@ -15,8 +15,9 @@ class Player
 
         //constructors
         Player();
-        Player(string, string);
-
+        Player(const string, const string, const vector<unsigned int>&); //takes in player name, color and path data
+                                                                         //the path data consists of size of path, number of wait for 5 or 8, 
+                                                                         //number of jungle and number of rhino
 
         //accessors
         string get_username() const {return username;}
@@ -27,11 +28,8 @@ class Player
         //mutators
         void set_lives(unsigned int new_lives) {lives = new_lives;}
 
-
-        //Move the player a certain number of places (not sure if I actually want this here)
-
-        //operators
-        friend ostream& operator >>(ostream& os, const Player& player);
+        //overloaded insertion operator
+        friend ostream& operator >>(ostream&, const Player&);
 
 
     private: 
@@ -40,6 +38,5 @@ class Player
         unsigned int lives; //player's lives remaining
         Path playerPath; //player's path
 };
-
 
 #endif//PLAYER_H
