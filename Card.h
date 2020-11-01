@@ -12,7 +12,7 @@ class Card
     public:
         //constructors
         Card();
-        Card(unsigned int, string, string, string);
+        Card(const unsigned int, const string, const string, const string); //takes in moveSpaces, riddle, answer, rescueItem
 
         //accessors
         unsigned int get_moveSpaces() const {return moveSpaces;}
@@ -20,8 +20,8 @@ class Card
         string get_answer() const {return answer;}
         string get_rescueItem() const {return rescueItem;}
 
-        //operators
-        friend ostream& operator >>(ostream&, Card);
+        //overloaded insertion operator
+        friend ostream& operator <<(ostream&, Card);
 
 
     private:

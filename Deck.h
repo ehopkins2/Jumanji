@@ -13,7 +13,7 @@ class Deck
     public:
         //constructors
         Deck();
-        Deck(unsigned int, const vector<Card>&);
+        Deck(unsigned int, const vector<Card>&); //takes in size of deck and vector of all possible cards
 
         //accessors
         unsigned int get_size() const {return size;}
