@@ -16,7 +16,7 @@ Path::Path(const vector<unsigned int>& pathData) : position(0)
 {
     if((pathData[1] + pathData[2] + pathData[3]) > pathData[0])
     {
-        cout << "Size of path is too small to fit the desired number of each type of space." << endl;
+        cout << "The size of path is too small to fit the desired number of each type of space." << endl;
         exit(1);
     }
 

@@ -17,8 +17,13 @@ Deck::Deck(unsigned int n, const vector<Card>& possibleCards) : size(n)
     int numCards = possibleCards.size();
     if(n < numCards)
     {
-        cout << "Size of deck is too small." << endl;
+        cout << "The given size of deck is too small to fit all the possible cards." << endl;
         exit(1);
+    }
+
+    if(n > 50)
+    {
+        cout << "The given size of deck is too big. A deck can be at most 50 cards." << endl;
     }
 
     for(int i = 0; i < numCards; ++i)
