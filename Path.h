@@ -15,7 +15,8 @@ class Path
     public:
         //constructors
         Path();
-        Path(unsigned int, unsigned int, unsigned int, unsigned int); //takes in number of spaces in path, number of wait for 5 or 8, number of jungle, and number of rhino
+        Path(const vector<unsigned int>&); //takes in vector that contains: 
+                                           //number of spaces in path, number of wait for 5 or 8, number of jungle, and number of rhino
 
         //accessors
         vector<string> get_tiles() const {return path;}
