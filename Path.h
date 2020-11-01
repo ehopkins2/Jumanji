@@ -15,19 +15,20 @@ class Path
     public:
         //constructors
         Path();
+        Path(unsigned int, unsigned int, unsigned int, unsigned int); //takes in number of spaces in path, number of wait for 5 or 8, number of jungle, and number of rhino
 
         //accessors
-        vector<string> get_tiles() const {return tiles;}
+        vector<string> get_tiles() const {return path;}
         unsigned int get_position() {return position;}
 
         //mutators
         void set_position(unsigned int new_position) {position = new_position;}
 
-        //operators
-        friend ostream& operator >>(ostream& os, Path path); //Do I really need this?
+        //overloarded insertion operator
+        friend ostream& operator >>(ostream&, Path); //Do I really need this?
 
     private:
-        vector<string> tiles; //vector that contains the tiles that make up the path
+        vector<string> path; //vector that contains the path
         unsigned int position; //position where the player is in the path
 
 };
