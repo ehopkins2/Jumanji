@@ -29,7 +29,7 @@ class Player
         void set_lives(unsigned int new_lives) {lives = new_lives;}
 
         //overloaded insertion operator
-        friend ostream& operator <<(ostream&, const Player&);
+        friend ostream& operator <<(ostream&, Player&);
 
 
     private: 

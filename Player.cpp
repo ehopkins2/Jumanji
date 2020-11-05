@@ -11,7 +11,7 @@ Player::Player() : lives(0) {}
 Player::Player(const string st1, const string st2, const vector<unsigned int>& pathData) 
  : username(st1), gameColor(st2), lives(5), playerPath(pathData) {}
 
-ostream& operator <<(ostream &os, Player player)
+ostream& operator <<(ostream& os, Player& player)
 {
     os << "Player Info:" << endl;
     os << "Name: " << player.get_username() << endl;
