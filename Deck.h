@@ -18,9 +18,11 @@ class Deck
         //accessors
         unsigned int get_size() const {return size;}
         vector<Card> get_deck() const {return deck;}
+        unsigned int get_position() const {return position;}
 
         //other member functions
         void shuffle();//shuffles the current deck
+        const Card draw();
 
         //overloaded insertion operator
         friend ostream& operator <<(ostream& os, Deck deck); //Do I really need this?
@@ -28,6 +30,7 @@ class Deck
     private:
         unsigned int size; //number of cards in the deck
         vector<Card> deck; //current deck
+        unsigned int position; //current place in deck
 };
 
 #endif//DECK_H
