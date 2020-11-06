@@ -24,6 +24,7 @@ int main()
     vector<Player> players;
     int numberPlayers;
     vector<unsigned int> pathData = {42, 5, 3, 7};
+    vector<string> npcNames = {"Dwayne", "Karen", "Kevin", "Jack"};
     map<string,unsigned int> possibleColors;
     possibleColors["red"] = 0;
     possibleColors["blue"] = 0;
@@ -80,9 +81,25 @@ int main()
                 cout << endl;
                 possibleColors[tempColor] = 1;
                 chosenColor = true;
-                players.push_back(Player(name, tempColor, pathData));  
+                players.push_back(Player(name, true, tempColor, pathData));  
             }   
         }
     }
+
+    vector<string> colorsLeft;
+    auto it = possibleColors.begin();
+    while(it != possibleColors.end())
+    {
+        if(!(it-> second))
+            colorsLeft.push_back(it-> first);
+        ++it;
+    }
+
+
+    for(int i = 0; i < colorsLeft.size(); ++i)
+        players.push_back(Player(npcNames[i], false, colorsLeft[i], pathData));
+    
+
+
     return 0;
 }
