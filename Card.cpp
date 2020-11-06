@@ -1,5 +1,7 @@
 #include "Card.h"
 
+using std::endl;
+
 //default constructor
 Card::Card():moveSpaces(0) {}
 
@@ -10,6 +12,7 @@ Card::Card(const unsigned int n, const string str1, const string str2, const str
 //Overloaded insertion operator
 ostream& operator <<(ostream& os, Card card)
 {
-    os << card.riddle;
+    os << "Moves: " << card.moveSpaces << endl;
+    os << "Riddle: " << card.riddle << endl;
     return os; 
 }
