@@ -17,7 +17,7 @@ class Deck
 
         //accessors
         unsigned int get_size() const {return size;}
-        vector<Card> get_deck() {return deck;}
+        vector<Card> get_deck() const {return deck;}
 
         //other member functions
         void shuffle();//shuffles the current deck
