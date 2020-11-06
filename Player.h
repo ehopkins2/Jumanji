@@ -15,7 +15,7 @@ class Player
 
         //constructors
         Player();
-        Player(const string, const string, const vector<unsigned int>&); //takes in player name, color and path data
+        Player(const string, const bool, const string, const vector<unsigned int>&); //takes in player name, if a user or not, color and path data
                                                                          //the path data consists of size of path, number of wait for 5 or 8, 
                                                                          //number of jungle and number of rhino
 
@@ -34,6 +34,7 @@ class Player
 
     private: 
         string username; //player's username
+        bool user; //true if the player is a user and false if it is an npc
         string gameColor; //player's game piece color
         unsigned int lives; //player's lives remaining
         Path playerPath; //player's path
