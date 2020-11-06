@@ -6,6 +6,8 @@
 #include <map>
 #include <algorithm>
 #include <time.h>
+#include <fstream>
+#include <sstream>
 #include "Card.h"
 #include "Deck.h"
 #include "Path.h"
@@ -15,6 +17,8 @@
 using std::cin;     using std::vector;  
 using std::cout;    using std::map;
 using std::endl;    using std::tolower;
+
+bool has_only_digits(const string);
 
 int main()
 
@@ -33,18 +37,21 @@ int main()
 
     //Into
     cout << "Welcome to Jumanji!" << endl;
-    cout << "How many players will be playing? ";
-    cin >> numberPlayers;
+    
+    string numberEntered;
+    cout << "How many players will be playing (0-4)? ";
+    getline(cin, numberEntered);
     cout << endl;
-    while (numberPlayers > 4 || numberPlayers < 0)
+    while (!(has_only_digits(numberEntered)) || stoi(numberEntered) > 4 || stoi(numberEntered) < 0)
     {
         cout << "You have entered an invalid number of players." << endl;
-        cout << "This is a four player game so the number of players can only be from 0 to 4." << endl;
+        cout << "This is a four player game so please enter a number between 0 and 4." << endl;
         cout << "How many players will be playing? ";
-        cin >> numberPlayers;
+        getline(cin, numberEntered);
         cout << endl;
     }
-
+    
+    numberPlayers = stoi(numberEntered);
     cout << "Next each player will give their name and choose a color." << endl;
     cout << "The possible colors are: red, blue, green and orange." << endl;
     cout << endl;
@@ -56,12 +63,12 @@ int main()
         bool chosenColor = false;
 
         cout << "Player " << i + 1 << " what is your name? ";
-        cin >> name;
+        getline(cin, name);
 
         while(!chosenColor)
         {
             cout << name << " what color would you like to be? ";
-            cin >> tempColor;
+            getline(cin, tempColor);
             std::transform(tempColor.begin(), tempColor.end(), tempColor.begin(), [](unsigned char c){return tolower(c);}); //uses Lambda expression
             if(possibleColors.find(tempColor) == possibleColors.end())
             {
@@ -95,11 +102,36 @@ int main()
         ++it;
     }
 
-
     for(int i = 0; i < colorsLeft.size(); ++i)
         players.push_back(Player(npcNames[i], false, colorsLeft[i], pathData));
     
 
+    vector<Card> possibleCards;
+    std::ifstream fin;
+    fin.open("CardData.txt");
+
+    string line;
+    while(std::getline(fin, line))
+    {
+        if(line == "-1")
+            break;
+        std::stringstream sin;
+        sin.str(line);
+        vector<string> splitLine;
+        string temp;
+        while(getline(sin, temp, '\t'))
+            splitLine.push_back(temp);
+        possibleCards.push_back(Card(stoi(splitLine[0]),splitLine[1], splitLine[2], splitLine[3]));
+    }
+    Deck mainDeck((rand()%20)+30, possibleCards);
+
+    Card nextCard = mainDeck.draw();
+    cout << nextCard;
+
 
     return 0;
+}
+
+bool has_only_digits(const string s){
+  return s.find_first_not_of( "0123456789" ) == string::npos;
 }
