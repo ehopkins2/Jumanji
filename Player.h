@@ -22,14 +22,14 @@ class Player
         //accessors
         string get_username() const {return username;}
         string get_gameColor() const {return gameColor;}
-        unsigned int get_lives() {return lives;}
-        Path get_playerPath() {return playerPath;}
+        unsigned int get_lives() const {return lives;}
+        Path get_playerPath() const {return playerPath;}
     
         //mutators
         void set_lives(unsigned int new_lives) {lives = new_lives;}
 
         //overloaded insertion operator
-        friend ostream& operator <<(ostream&, Player&);
+        friend ostream& operator <<(ostream&, const Player&);
 
 
     private: 

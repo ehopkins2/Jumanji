@@ -20,13 +20,13 @@ class Path
 
         //accessors
         vector<string> get_path() const {return path;}
-        unsigned int get_position() {return position;}
+        unsigned int get_position() const {return position;}
 
         //mutators
         void set_position(unsigned int new_position) {position = new_position;}
 
         //overloaded insertion operator
-        friend ostream& operator <<(ostream&, Path);
+        friend ostream& operator <<(ostream&, const Path);
 
     private:
         vector<string> path; //vector that contains the path

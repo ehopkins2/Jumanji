@@ -40,12 +40,12 @@ Path::Path(const vector<unsigned int>& pathData) : position(0)
     path.push_back("JUMANJI!");
 }
 
-ostream& operator <<(ostream& os, Path pathObj)
+ostream& operator <<(ostream& os, const Path pathObj)
 {
-    unsigned int size = (pathObj.get_path()).size();
+    unsigned int size = (pathObj.path).size();
     for(int i = 0; i < size; ++i)
     {
-        os << i << ": " << pathObj.get_path()[i] << endl; 
+        os << i << ": " << pathObj.path[i] << endl; 
     }
     return os;
 }
