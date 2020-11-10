@@ -2,9 +2,14 @@
 #define PATH_H
 
 #include <iostream>
+#include <cstdlib>
+#include <algorithm>
 #include <string>
 #include <vector>
 
+
+using std::cout;
+using std::endl;
 using std::ostream;
 using std::string;
 using std::vector;
@@ -24,6 +29,10 @@ class Path
 
         //mutators
         void set_position(unsigned int new_position) {position = new_position;}
+
+        //add and sub assign operators
+        Path& operator +=(const unsigned int);
+        Path& operator -=(const unsigned int);
 
         //overloaded insertion operator
         friend ostream& operator <<(ostream&, const Path);

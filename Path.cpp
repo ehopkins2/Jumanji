@@ -1,9 +1,4 @@
 #include "Path.h"
-#include <cstdlib>
-#include <algorithm>
-
-using std::cout;
-using std::endl;
 
 //default constructor
 Path::Path() : position(0) {}
@@ -50,3 +45,14 @@ ostream& operator <<(ostream& os, const Path pathObj)
     return os;
 }
 
+Path& Path::operator +=(const unsigned int n)
+{
+    this->position += n;
+    return *this;
+}
+
+Path& Path::operator -=(const unsigned int n)
+{
+    this->position -= n;
+    return *this;
+}
