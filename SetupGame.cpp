@@ -17,6 +17,12 @@ map<string, Player> setupPlayers()
     possibleColors["green"] = 0;
     possibleColors["orange"] = 0;
 
+    map<string, vector<pair<unsigned int, string>>> intersections;
+    intersections["red"] = {make_pair(23,"green"), make_pair(32, "blue")};
+    intersections["blue"] = {make_pair(23, "orange"), make_pair(32, "red")};
+    intersections["green"] = {make_pair(23, "red"), make_pair(32,"orange")};
+    intersections["orange"] = {make_pair(23, "blue"), make_pair(32, "green")};
+
     int numberPlayers;
     string numberEntered;
     cout << "How many players will be playing (0-4)? ";
@@ -68,7 +74,7 @@ map<string, Player> setupPlayers()
                 cout << endl;
                 possibleColors[tempColor] = 1;
                 chosenColor = true;
-                players[tempColor] = Player(name, true, tempColor, pathData);  
+                players[tempColor] = Player(name, true, tempColor, pathData, intersections[tempColor]);  
             }   
         }
     }
@@ -83,7 +89,10 @@ map<string, Player> setupPlayers()
     }
 
     for(int i = 0; i < colorsLeft.size(); ++i)
-        players[colorsLeft[i]] = Player(npcNames[i], false, colorsLeft[i], pathData);
+    {
+        string color = colorsLeft[i];
+        players[color] = Player(npcNames[i], false, color, pathData, intersections[color]);
+    }
 
     return players;
 }
@@ -108,15 +117,4 @@ Deck setupDeck()
         possibleCards.push_back(Card(stoi(splitLine[0]),splitLine[1], splitLine[2], splitLine[3]));
     }
     return Deck((rand()%20)+30, possibleCards);
-}
-
-map<string, vector<tuple<unsigned int, string>>> setupIntersections()
-{
-    map<string, vector<tuple<unsigned int, string>>> intersections;
-    intersections["red"] = {make_tuple(23,"green"), make_tuple(32, "blue")};
-    intersections["blue"] = {make_tuple(23, "orange"), make_tuple(32, "red")};
-    intersections["green"] = {make_tuple(23, "red"), make_tuple(32,"orange")};
-    intersections["orange"] = {make_tuple(23, "blue"), make_tuple(32, "green")};
-    
-    return intersections;
 }
