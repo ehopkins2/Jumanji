@@ -17,7 +17,9 @@ class Deck
 
         //accessors
         unsigned int get_size() const {return size;}
+        unsigned int get_numPossibleCards() const {return numPossibleCards;}
         vector<Card> get_deck() const {return deck;}
+        vector<string> get_possibleAnswers() const {return possibleAnswers;}
         unsigned int get_position() const {return position;}
 
         //other member functions
@@ -29,7 +31,9 @@ class Deck
 
     private:
         unsigned int size; //number of cards in the deck
+        unsigned int numPossibleCards; //number of unique cards in the deck
         vector<Card> deck; //current deck
+        vector<string> possibleAnswers; //all the possible answers to the cards in the deck
         unsigned int position; //current place in deck
 };
 
