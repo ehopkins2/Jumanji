@@ -104,8 +104,20 @@ int main()
             }
 
             if(moveSuccessful || currentPlayer.get_playerPath().get_position() == 41)
-                doActionOnPath(players, currentPlayer, mainDeck, numPlayersAlive, winner);     
-                        
+                doActionOnPath(players, currentPlayer, mainDeck, numPlayersAlive);
+
+            //check if there is a winner
+            for(auto &p : players)
+            {
+                if(p.second.get_playerPath().get_position() == 41)
+                {
+                    cout << p.second.get_username() << " has won the game!" << endl;
+                    cout << endl;
+                    winner = true;   
+                }
+            }
+
+            //exit the loop if there is a winner or there are not enough players alive     
             if(winner || numPlayersAlive <= 1)
                 break;
         }

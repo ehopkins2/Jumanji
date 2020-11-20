@@ -18,6 +18,6 @@ const unsigned int rescue(map<string, Player>&, string);
 
 const unsigned int faceDanger(map<string, Player>&, Player&, Deck&, Card&);
 
-void doActionOnPath(map<string, Player>&, Player&, Deck&, unsigned int&, bool&);
+void doActionOnPath(map<string, Player>&, Player&, Deck&, unsigned int&);
 
 #endif//GAME_PLAY_H

@@ -60,7 +60,7 @@ const unsigned int faceDanger(map<string, Player> &players, Player &currentPlaye
     }
 }
 
-void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &mainDeck, unsigned int &numPlayersAlive, bool &winner)
+void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &mainDeck, unsigned int &numPlayersAlive)
 {
     enum pathType {jumanji, waitFor5Or8, jungle, rhino, blank};
     map<string, pathType> mapPathType;
@@ -79,9 +79,6 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
     {
         case jumanji:
         {
-            cout << currentPlayer.get_username() << " has won the game!" << endl;
-            cout << endl;
-            winner = true;
             break;
         }
 
@@ -140,7 +137,8 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                         cout << "Your friends have saved you! Everyone gets to move forward " << numMoves << "." << endl;
                         for(auto& p : players)
                         {
-                            p.second.movePlayer("forward", numMoves, players);
+                            if(p.second.get_lives() > 0)
+                                p.second.movePlayer("forward", numMoves, players);
                         }  
                         success = true;
                         break;
@@ -218,6 +216,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                 case 3:
                     break;
             }
+            cout << "Your turn is now over." << endl;
             break;
         }
 
