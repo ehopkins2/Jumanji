@@ -61,8 +61,8 @@ int main()
             cout << "At this time, you may exit the game by typing exit or you can continue by typing anything else.";
             getline(cin, temp);
             cout << endl;
-                
             std::transform(temp.begin(), temp.end(), temp.begin(), [](unsigned char c){return std::tolower(c);}); //uses Lambda expression
+
             if(temp == "exit")
             {
                 exit = true;
@@ -77,6 +77,7 @@ int main()
                 cout << "You roll the game die." << endl;
                 cout << "You rolled a " << numMove << "." << endl;
                 moveSuccessful = currentPlayer.movePlayer("forward", numMove, players);
+                players[currentPlayer.get_gameColor()] = currentPlayer;
             }
             else
             {
@@ -86,23 +87,24 @@ int main()
                     cout << "Since you are currently at position 40, you can ignore the Rhino. You need to roll a 1 to win." << endl;
                     cout << "You rolled a " << numMove << "." << endl;
                     moveSuccessful = currentPlayer.movePlayer("forward", numMove, players);
+                    players[currentPlayer.get_gameColor()] = currentPlayer;
                 }
                 else
                 {
                     cout << "You roll the game die. You need to roll an even number to move forward." << endl;
                     cout << "You rolled a " << numMove << "." << endl;
                     if(numMove%2 == 0)
+                    {
                         moveSuccessful = currentPlayer.movePlayer("forward", numMove, players);
+                        players[currentPlayer.get_gameColor()] = currentPlayer;
+                    }
                     else
                         cout << "You did not roll an even number, so you are stuck." << endl;
                 }
             }
 
             if(moveSuccessful || currentPlayer.get_playerPath().get_position() == 41)
-            {
-                doActionOnPath(players, currentPlayer, mainDeck, numPlayersAlive, winner);
-                players[currentPlayer.get_gameColor()] = currentPlayer;
-            }     
+                doActionOnPath(players, currentPlayer, mainDeck, numPlayersAlive, winner);     
                         
             if(winner || numPlayersAlive <= 1)
                 break;
