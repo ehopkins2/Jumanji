@@ -48,12 +48,14 @@ const unsigned int faceDanger(map<string, Player> &players, Player &currentPlaye
     {
         cout << "That is correct! You escape the danger and can move forward " << currentCard.get_moveSpaces() << "." << endl;
         currentPlayer.movePlayer("forward", currentCard.get_moveSpaces(), players);
+        players[currentPlayer.get_gameColor()] = currentPlayer;
         return 3; //escaped
     }
     else
     {
         cout << "That is incorrect! The answer was " << currentCard.get_answer() << ". Let's see if your friends can rescue you." << endl;
         cout << "Everyone will now roll the rescue die to try and rescue " << currentPlayer.get_username() << "." << endl;
+        cout << endl;
         return rescue(players, currentCard.get_rescueItem());
     }
 }
@@ -97,6 +99,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                 {
                     cout << "You are back at position 0 in your path, so your turn is now over." << endl;
                     cout << endl;
+                    players[currentPlayer.get_gameColor()] = currentPlayer;
                     break;
                 }
                 roll = rollGameDie();
@@ -106,6 +109,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
             {
                 cout << "Your turn is now over." << endl;
                 cout << endl;
+                players[currentPlayer.get_gameColor()] = currentPlayer;
             }
             break;
         }
@@ -113,7 +117,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
         case jungle:
         {
             cout << "You drag your friends into the jungle with you, but you get separated." << endl;
-            cout << " In order for everyone to escape with their lives, you need to escape a danger by guessing the answer to a riddle," 
+            cout << "In order for everyone to escape with their lives, you need to escape a danger by guessing the answer to a riddle," 
                  << "or your friends need to rescue you." << endl;
             cout << endl;
             int chancesLeft = 3;
@@ -134,11 +138,9 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                     {
                         unsigned int numMoves = currentCard.get_moveSpaces();
                         cout << "Your friends have saved you! Everyone gets to move forward " << numMoves << "." << endl;
-                        currentPlayer.movePlayer("forward", numMoves, players);
                         for(auto& p : players)
                         {
-                            if(p.first != currentPlayer.get_gameColor())
-                                p.second.movePlayer("forward", numMoves, players);
+                            p.second.movePlayer("forward", numMoves, players);
                         }  
                         success = true;
                         break;
@@ -197,7 +199,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                     for(auto& p : players)
                     {
                         if(p.second.get_gameColor() != currentPlayer.get_gameColor())
-                        p.second.movePlayer("forward", numMoves, players);
+                            p.second.movePlayer("forward", numMoves, players);
                     }        
                     break;
                 }
@@ -207,6 +209,7 @@ void doActionOnPath(map<string, Player> &players, Player &currentPlayer, Deck &m
                     cout << "Your friends did not save you! You lose a life and move backward " << numMoves << " spaces." << endl;
                     currentPlayer.movePlayer("backward", numMoves, players);
                     bool playerDied = currentPlayer.loseLife();
+                    players[currentPlayer.get_gameColor()] = currentPlayer;
                     if(playerDied)
                         --numPlayersAlive;
                     break;
