@@ -78,6 +78,8 @@ bool Player::movePlayer(const string dir, const unsigned int n, map<string, Play
 
 bool Player::loseLife()
 {
+    if(lives == 0)
+        return false;
     --lives;
     if(lives == 0)
     {
